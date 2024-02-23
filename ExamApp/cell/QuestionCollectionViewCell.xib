@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="QuestionCollectionViewCell" id="gTV-IL-0wX" customClass="QuestionCollectionViewCell" customModule="ExamApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dj3-gR-V8k">
+                        <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euc-1R-aSQ">
+                                <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
+                                <color key="backgroundColor" red="0.67450982329999998" green="0.59607845540000004" blue="0.78039217000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="touchUpInsideQuestion:" destination="gTV-IL-0wX" eventType="touchUpInside" id="rrX-tj-C9q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.34025462899999998" green="0.3011091018" blue="0.3941784585" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="euc-1R-aSQ" secondAttribute="bottom" id="LvX-Oo-8aW"/>
+                            <constraint firstItem="euc-1R-aSQ" firstAttribute="top" secondItem="Dj3-gR-V8k" secondAttribute="top" id="X2S-DM-zMG"/>
+                            <constraint firstAttribute="trailing" secondItem="euc-1R-aSQ" secondAttribute="trailing" id="YSO-1b-OjR"/>
+                            <constraint firstItem="euc-1R-aSQ" firstAttribute="leading" secondItem="Dj3-gR-V8k" secondAttribute="leading" id="had-5u-tfs"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Dj3-gR-V8k" secondAttribute="trailing" id="OlX-lS-NmA"/>
+                <constraint firstItem="Dj3-gR-V8k" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="aRc-xM-KGC"/>
+                <constraint firstAttribute="bottom" secondItem="Dj3-gR-V8k" secondAttribute="bottom" id="glr-V7-mVy"/>
+                <constraint firstItem="Dj3-gR-V8k" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pgD-Vk-WaJ"/>
+            </constraints>
+            <size key="customSize" width="306" height="440"/>
+            <point key="canvasLocation" x="299.23664122137404" y="156.69014084507043"/>
+        </collectionViewCell>
+    </objects>
+</document>
