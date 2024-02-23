@@ -110,6 +110,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Next">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="touchUpInsideNext:" destination="r3s-5g-HcZ" eventType="touchUpInside" id="1jT-lx-vho"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qx3-vO-pTg">
                                 <rect key="frame" x="30" y="103" width="80" height="40"/>
@@ -123,6 +126,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Exit">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tuchUpInsideExit:" destination="r3s-5g-HcZ" eventType="touchUpInside" id="fTU-2F-DWm"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hCh-Zd-NPJ">
                                 <rect key="frame" x="10" y="323" width="373" height="425"/>

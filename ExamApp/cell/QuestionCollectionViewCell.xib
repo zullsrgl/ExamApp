@@ -23,13 +23,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="500" height="600"/>
                                 <color key="backgroundColor" red="0.67450982329999998" green="0.59607845540000004" blue="0.78039217000000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
                                     <action selector="touchUpInsideQuestion:" destination="gTV-IL-0wX" eventType="touchUpInside" id="rrX-tj-C9q"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.34025462899999998" green="0.3011091018" blue="0.3941784585" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="euc-1R-aSQ" secondAttribute="bottom" id="LvX-Oo-8aW"/>
                             <constraint firstItem="euc-1R-aSQ" firstAttribute="top" secondItem="Dj3-gR-V8k" secondAttribute="top" id="X2S-DM-zMG"/>
@@ -47,6 +46,10 @@
                 <constraint firstItem="Dj3-gR-V8k" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="pgD-Vk-WaJ"/>
             </constraints>
             <size key="customSize" width="306" height="440"/>
+            <connections>
+                <outlet property="btnQuestion" destination="euc-1R-aSQ" id="mdb-TR-Trm"/>
+                <outlet property="btnView" destination="Dj3-gR-V8k" id="Y9T-4s-GO5"/>
+            </connections>
             <point key="canvasLocation" x="299.23664122137404" y="156.69014084507043"/>
         </collectionViewCell>
     </objects>

@@ -23,9 +23,7 @@ class ExamViewController: UIViewController {
     
     @IBOutlet weak var lblQuestion: UILabel!
     
-    
-    
-    
+    //MARK: ViewDidLoad
     override func viewDidLoad(){
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -38,13 +36,41 @@ class ExamViewController: UIViewController {
         
         collectionViewQuestion.collectionViewLayout = layout
         collectionViewQuestion.register(UINib(nibName: "QuestionCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "QuestionCollectionViewCell")
-        
- 
-        
     
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        ApiCaller.shared.getQuestion { result in
+            switch result {
+            case.success(let data) :
+                print("başarılı : \(data)")
+            case.failure(let error):
+                print("error : \(error)")
+            }
+            
+        }
+    }
+    @IBAction func tuchUpInsideExit(_ sender: Any) {
+        //alert message
+        let alert = UIAlertController(title: "Exit The Exam", message: "Are you sure?", preferredStyle: .actionSheet)
+        let exitAction = UIAlertAction(title: "Exit", style: .default) { _ in
+            if  let navigationController = self.navigationController {
+                navigationController.popToRootViewController(animated: true)
+            }
+            else {
+                self.dismiss(animated: true, completion: nil)
+            }
+            
+        }
+        alert.addAction(exitAction)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func touchUpInsideNext(_ sender: Any) {
+        //next question
+    
+    }
 }
 
 
@@ -57,7 +83,8 @@ extension ExamViewController : UICollectionViewDelegate , UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionCollectionViewCell", for: indexPath) as! QuestionCollectionViewCell
-        
+  
+        cell.btnQuestion.setTitle("Question \(indexPath.item)", for: .normal)
         return cell
     }
     
