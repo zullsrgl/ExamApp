@@ -84,7 +84,7 @@ extension ExamViewController : UICollectionViewDelegate , UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionCollectionViewCell", for: indexPath) as! QuestionCollectionViewCell
   
-        cell.btnQuestion.setTitle("Question \(indexPath.item)", for: .normal)
+        cell.btnQuestion.setTitle("cevap:  \(indexPath.item)", for: .normal)
         return cell
     }
     
