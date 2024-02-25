@@ -10,21 +10,21 @@ import Alamofire
 
 class ApiCaller  {
     static let shared = ApiCaller()
-    
-    func getQuestion (completion : (Result<[QuizResponse] , Error>) -> Void){
+
+    func getQuestion (completion : @escaping (Result<[QuizQuestion] , Error>) -> Void){
         guard let url = URL(string: "https://opentdb.com/api.php?amount=10") else {return}
         let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _ , error in
             guard  let data = data , error == nil else {return}
             do {
                 let result = try JSONDecoder().decode(QuizResponse.self, from: data)
-               print("api caller okey \(result)")
-                
+               print("api caller okey (result)")
+                completion(Result.success(result.results))
             }catch {
-                print("error : \(error)")
-                
+                print("error : (error)")
+                completion(Result.failure(error))
             }
         }
         task.resume()
     }
-    
+
 }

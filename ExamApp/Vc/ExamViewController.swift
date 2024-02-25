@@ -23,6 +23,10 @@ class ExamViewController: UIViewController {
     
     @IBOutlet weak var lblQuestion: UILabel!
     
+    private var questionIndex = 0
+    private var questionList: [QuizQuestion] = []
+    private var answerList: [String] = []
+    
     //MARK: ViewDidLoad
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -43,6 +47,12 @@ class ExamViewController: UIViewController {
         ApiCaller.shared.getQuestion { result in
             switch result {
             case.success(let data) :
+                DispatchQueue.main.async {
+                    self.questionList.append(contentsOf: data)
+                    self.showQuestion(question: self.questionList[self.questionIndex].question)
+                    self.answerList = self.getAllAnswers(question: self.questionList[self.questionIndex])
+                    self.collectionViewQuestion.reloadData()
+                }
                 print("başarılı : \(data)")
             case.failure(let error):
                 print("error : \(error)")
@@ -50,6 +60,23 @@ class ExamViewController: UIViewController {
             
         }
     }
+    
+    private func showQuestion(question: String) {
+        lblQuestion.text = question
+    }
+    
+    private func getAllAnswers(question: QuizQuestion) -> [String] {
+        //var answers: [String] = []
+        
+        //answers.append(contentsOf: question.incorrectAnswers)
+        //answers.append(question.correctAnswer)
+        //answers.shuffle()
+        //return answers
+        var allOptions = [question.correctAnswer] + question.incorrectAnswers
+        allOptions.shuffle()
+        return allOptions
+    }
+    
     @IBAction func tuchUpInsideExit(_ sender: Any) {
         //alert message
         let alert = UIAlertController(title: "Exit The Exam", message: "Are you sure?", preferredStyle: .actionSheet)
@@ -76,17 +103,18 @@ class ExamViewController: UIViewController {
 
 extension ExamViewController : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-        
-        
+        if questionList.isEmpty {
+            return 0
+        }
+
+        let count = answerList.count
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QuestionCollectionViewCell", for: indexPath) as! QuestionCollectionViewCell
-  
-        cell.btnQuestion.setTitle("cevap:  \(indexPath.item)", for: .normal)
+        
+        cell.btnQuestion.setTitle(answerList[indexPath.row], for: .normal)
         return cell
     }
-    
-
 }

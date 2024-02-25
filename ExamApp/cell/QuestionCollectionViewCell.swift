@@ -13,7 +13,7 @@ class QuestionCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var btnQuestion: UIButton! {
         didSet{
             btnQuestion.titleLabel?.font = UIFont(name: "Arial", size: 24)
-            btnQuestion.tintColor = .magenta
+            btnQuestion.tintColor = .white
             btnQuestion.layer.cornerRadius = 24
        
         }
