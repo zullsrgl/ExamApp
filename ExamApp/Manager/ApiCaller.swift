@@ -17,7 +17,7 @@ class ApiCaller  {
             guard  let data = data , error == nil else {return}
             do {
                 let result = try JSONDecoder().decode(QuizResponse.self, from: data)
-               print("api caller okey (result)")
+              // print("api caller okey (result)")
                 completion(Result.success(result.results))
             }catch {
                 print("error : (error)")

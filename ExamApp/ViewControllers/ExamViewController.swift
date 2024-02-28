@@ -20,7 +20,6 @@ class ExamViewController: UIViewController {
         }
     }
     @IBOutlet weak var collectionViewQuestion: UICollectionView!
-    
     @IBOutlet weak var lblQuestion: UILabel!
     
     private var questionIndex = 0
@@ -66,12 +65,6 @@ class ExamViewController: UIViewController {
     }
     
     private func getAllAnswers(question: QuizQuestion) -> [String] {
-        //var answers: [String] = []
-        
-        //answers.append(contentsOf: question.incorrectAnswers)
-        //answers.append(question.correctAnswer)
-        //answers.shuffle()
-        //return answers
         var allOptions = [question.correctAnswer] + question.incorrectAnswers
         allOptions.shuffle()
         return allOptions
@@ -101,6 +94,7 @@ class ExamViewController: UIViewController {
 }
 
 
+//MARK: Extansion
 extension ExamViewController : UICollectionViewDelegate , UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if questionList.isEmpty {
